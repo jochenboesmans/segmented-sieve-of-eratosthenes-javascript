@@ -9,7 +9,7 @@ const FIRST_PRIME = 2;
 /*
 Returns a list of all prime numbers up to a given limit n.
 */
-export default function primes(n) {
+export default function primesUntil(n) {
   // use "slice" to avoid mutating array
   const potPrimes = [FIRST_PRIME].concat(potentialPrimes(FIRST_PRIME, n));
   return sweep(potPrimes, FIRST_PRIME, n, 0);
