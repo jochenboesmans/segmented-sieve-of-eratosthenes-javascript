@@ -1,4 +1,5 @@
 import _ from "lodash";
+import Table from "cli-table";
 
 import primes from "./segmentedSieveOfEratosthenes.js";
 
@@ -11,23 +12,25 @@ function main() {
 }
 
 function printPrimes(p) {
-  const table = primesMultiplicationTable(p);
-  for (let row of table) {
-    console.log(row.join(" | "));
-  }
+  console.log(primesMultiplicationTable(p).toString());
 }
 
 function primesMultiplicationTable(p) {
-  let table = (new Array(p.length + 1).fill(0)).map(e => new Array(p.length + 1).fill(0));
-  table[0][0] = 1;
+  let values = (new Array(p.length + 1).fill(0)).map(e => new Array(p.length + 1).fill(0));
+  values[0][0] = 1;
   for (let i = 0; i < p.length; i++) {
-    table[i+1][0] = p[i];
-    table[0][i+1] = p[i];
+    values[i+1][0] = p[i];
+    values[0][i+1] = p[i];
   }
   for (let i = 0; i < p.length; i++) {
     for (let j = 0; j < p.length; j++) {
-      table[i+1][j+1] = p[i] * p[j];
+      values[i+1][j+1] = p[i] * p[j];
     }
+  }
+
+  let table = new Table();
+  for (let row of values) {
+    table.push(row);
   }
   return table;
 }
