@@ -2,7 +2,7 @@ const regularPrimesUntil = require("../src/regularSieveOfEratosthenes").primesUn
 const segmentedPrimesUntil = require("../src/segmentedSieveOfEratosthenes").primesUntil;
 
 test("Segmented sieve is faster than regular for high limits", () => {
-  const n = 10000;
+  const n = 10**4;
 
   const times = {
     regular: time(regularPrimesUntil, n),
@@ -13,7 +13,7 @@ test("Segmented sieve is faster than regular for high limits", () => {
 });
 
 test("Segmented sieve scales better than regular", () => {
-  const n = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000];
+  const n = [10**0, 10**1, 10**2, 10**3, 10**4, 10**5, 10**6, 10**7];
 
   const times = n.map(x => ({
     regular: (x > 10000) ? "N/A" : time(regularPrimesUntil, x),
