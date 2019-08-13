@@ -7,12 +7,12 @@ const { range } = require("lodash");
 const primeBase = require("./regularSieveOfEratosthenes").primesUntil;
 
 function primes(amount) {
-  const segSize = segmentSize(amount);
-  const base = primeBase(segSize);
+  const segSize = amount;
+  const base = primeBase(segSize + 1);
 
   let result = base;
   for(
-    let s = [segSize, 2 * segSize];
+    let s = [segSize, 2 * segSize - 1];
     result.length < amount;
     s = [s[0] + segSize, s[1] + segSize]
    ) {
@@ -39,7 +39,9 @@ function segments(n, segSize) {
 
 function sweptSegment(min, max, base) {
   const potPrimes = potentialPrimes(min, max);
-  return potPrimes.filter(p => base.every(i => p % i !== 0));
+  return potPrimes.filter(p => {
+    return base.every(i => p % i !== 0);
+  });
 }
 
 function potentialPrimes(min, max) {
