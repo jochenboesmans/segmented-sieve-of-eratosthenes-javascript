@@ -30,7 +30,7 @@ function primesUntil(n) {
     acc.concat(sweptSegment(s[0], s[1], base)), base);
 }
 
-const segmentSize = (n) => Math.trunc(Math.sqrt(n));
+const segmentSize = (n) => Math.max(Math.trunc(Math.sqrt(n)), 2);
 
 function segments(n, segSize) {
   const segMins = range(segSize, n, segSize);
