@@ -18,7 +18,7 @@ function primesUntil(n) {
 function potentialPrimes(min, max) {
   // return list of odd numbers between min and max
   const start = (min % 2 === 0) ? min + 1 : min;
-  return range(start, max, 2);
+  return range(start, max + 1, 2);
 }
 
 function sweep(potPrimes, p, n) {
@@ -28,7 +28,7 @@ function sweep(potPrimes, p, n) {
   return (newP === undefined) ? sweptPrimes : sweep(sweptPrimes, newP, n);
 }
 
-const composites = (p, n) => (p * p > n) ? [] : range(p * p, n, p);
+const composites = (p, n) => (p * p > n) ? [] : range(p * p, n + 1, p);
 
 module.exports = {
   primesUntil

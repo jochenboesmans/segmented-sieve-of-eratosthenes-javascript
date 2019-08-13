@@ -33,8 +33,8 @@ function primesUntil(n) {
 const segmentSize = (n) => Math.trunc(Math.sqrt(n));
 
 function segments(n, segSize) {
-  const segMins = range(segSize, n - segSize, segSize);
-  return segMins.map(min => [min, min + segSize]);
+  const segMins = range(segSize, n, segSize);
+  return segMins.map(min => [min + 1, Math.min(min + segSize, n)]);
 }
 
 function sweptSegment(min, max, base) {
@@ -45,7 +45,7 @@ function sweptSegment(min, max, base) {
 function potentialPrimes(min, max) {
   // return list of odd numbers between min and max
   const start = (min % 2 === 0) ? min + 1 : min;
-  return range(start, max, 2);
+  return range(start, max + 1, 2);
 }
 
 module.exports = {
