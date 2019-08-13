@@ -7,17 +7,17 @@ function main() {
   if (process.argv.length !== 3) {
     throw new Error(`Please supply exactly one CLI argument (the amount of primes to print). Example: "yarn run print_primes 100" would print the first 100 primes.`);
   } else {
-    printPrimes(primes(process.argv[2]));
+    printPrimesTable(primes(process.argv[2]));
   }
 }
 
-function printPrimes(p) {
+function printPrimesTable(p) {
   console.log(primesMultiplicationTable(p).toString());
 }
 
 function primesMultiplicationTable(p) {
   let values = (new Array(p.length + 1).fill(0)).map(e => new Array(p.length + 1).fill(0));
-  values[0][0] = 1;
+  values[0][0] = " ";
   for (let i = 0; i < p.length; i++) {
     values[i+1][0] = p[i];
     values[0][i+1] = p[i];
