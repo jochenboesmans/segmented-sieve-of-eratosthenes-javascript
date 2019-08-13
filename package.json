@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "print_primes_table": "node --experimental-modules './src/printPrimesTable.js'",
+    "print_primes_table": "node './src/printPrimesTable.js'",
     "test": "jest"
   },
   "devDependencies": {

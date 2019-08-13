@@ -1,7 +1,6 @@
-import _ from "lodash";
-import Table from "cli-table";
+const Table = require("cli-table");
 
-import primes from "./segmentedSieveOfEratosthenes.js";
+const { primes } = require("./segmentedSieveOfEratosthenes.js");
 
 function main() {
   if (process.argv.length !== 3) {

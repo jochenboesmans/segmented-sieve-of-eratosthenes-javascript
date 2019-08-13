@@ -2,11 +2,11 @@
 Functions for generating prime numbers up to a given limit n using the segmented
 sieve of Eratosthenes method.
 */
-import _ from "lodash";
+const { range } = require("lodash");
 
-import primeBase from "./regularSieveOfEratosthenes.js"
+const primeBase = require("./regularSieveOfEratosthenes").primesUntil;
 
-export default function primes(amount) {
+function primes(amount) {
   const segSize = segmentSize(amount);
   const base = primeBase(segSize);
 
@@ -21,7 +21,7 @@ export default function primes(amount) {
    return result.slice(0, amount);
 }
 
-export function primesUntil(n) {
+function primesUntil(n) {
   const segSize = segmentSize(n);
   const base = primeBase(segSize);
   const segs = segments(n, segSize);
@@ -33,7 +33,7 @@ export function primesUntil(n) {
 const segmentSize = (n) => Math.trunc(Math.sqrt(n));
 
 function segments(n, segSize) {
-  const segMins = _.range(segSize, n - segSize, segSize);
+  const segMins = range(segSize, n - segSize, segSize);
   return segMins.map(min => [min, min + segSize]);
 }
 
@@ -45,5 +45,9 @@ function sweptSegment(min, max, base) {
 function potentialPrimes(min, max) {
   // return list of odd numbers between min and max
   const start = (min % 2 === 0) ? min + 1 : min;
-  return _.range(start, max, 2);
+  return range(start, max, 2);
+}
+
+module.exports = {
+  primes, primesUntil
 }
