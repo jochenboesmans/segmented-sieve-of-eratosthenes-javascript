@@ -34,6 +34,4 @@ function primesMultiplicationTable(p) {
   return table;
 }
 
-const multipleValue = (i, j, p) => p[i] * p[j];
-
 main();
