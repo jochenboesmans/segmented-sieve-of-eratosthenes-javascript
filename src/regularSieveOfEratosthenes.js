@@ -11,7 +11,7 @@ Returns a list of all prime numbers up to a given limit n.
 */
 function primesUntil(n) {
   const potPrimes = [FIRST_PRIME].concat(potentialPrimes(FIRST_PRIME, n));
-  return sweep(potPrimes, FIRST_PRIME, n, 0);
+  return sweep(potPrimes, FIRST_PRIME, n);
 }
 
 /*
