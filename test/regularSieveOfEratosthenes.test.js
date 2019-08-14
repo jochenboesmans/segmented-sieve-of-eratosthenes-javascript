@@ -21,6 +21,18 @@ describe("potentialPrimes/2", () => {
       const min = 2, max = 10;
       expect(potentialPrimes(min, max)).toEqual(expectedOutput);
     });
+    test("for odd min, even max", () => {
+      const min = 3, max = 10;
+      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
+    });
+    test("for even min, odd max", () => {
+      const min = 2, max = 9;
+      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
+    });
+    test("for odd min, odd max", () => {
+      const min = 3, max = 9;
+      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
+    });
   });
 });
 
