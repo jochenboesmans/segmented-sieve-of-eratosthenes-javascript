@@ -2,9 +2,10 @@
 Functions for generating prime numbers up to a given limit n using the segmented
 sieve of Eratosthenes method.
 */
-const { range } = require("lodash");
+const {range} = require("lodash");
 
 const primeBase = require("./regularSieveOfEratosthenes").primesUntil;
+const {potentialPrimes} = require("./potentialPrimes");
 
 function primes(amount) {
   const segSize = amount;
@@ -44,12 +45,4 @@ function sweptSegment(min, max, base) {
   });
 }
 
-function potentialPrimes(min, max) {
-  // return list of odd numbers between min and max
-  const start = (min % 2 === 0) ? min + 1 : min;
-  return range(start, max + 1, 2);
-}
-
-module.exports = {
-  primes, primesUntil
-}
+module.exports = {primes, primesUntil}

@@ -1,6 +1,6 @@
 const rewire = require("rewire");
 
-const { primesUntil } = require("../src/regularSieveOfEratosthenes");
+const {primesUntil} = require("../src/regularSieveOfEratosthenes");
 // rewire module is used for testing non-exported functions.
 const rewiredRegularSoE = rewire("../src/regularSieveOfEratosthenes");
 
@@ -13,29 +13,6 @@ describe("composites/2", () => {
   });
 });
 
-describe("potentialPrimes/2", () => {
-  const potentialPrimes = rewiredRegularSoE.__get__("potentialPrimes");
-  describe("includes all expected values", () => {
-    const expectedOutput = [3, 5, 7, 9];
-    test("for even min, even max", () => {
-      const min = 2, max = 10;
-      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
-    });
-    test("for odd min, even max", () => {
-      const min = 3, max = 10;
-      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
-    });
-    test("for even min, odd max", () => {
-      const min = 2, max = 9;
-      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
-    });
-    test("for odd min, odd max", () => {
-      const min = 3, max = 9;
-      expect(potentialPrimes(min, max)).toEqual(expectedOutput);
-    });
-  });
-});
-
 describe("sweep/3", () => {
   const sweep = rewiredRegularSoE.__get__("sweep");
   test("correctly filters a list of potentialPrimes with realistic values", () => {
@@ -44,7 +21,7 @@ describe("sweep/3", () => {
     // odd numbers from 2 (incl.) to 10 (incl.), prepended by 2.
     const potPrimes = [2, 3, 5, 7, 9];
     expect(sweep(potPrimes, p, n)).toEqual(expectedOutput);
-  })
+  });
 });
 
 describe("primesUntil/1", () => {
