@@ -1,6 +1,6 @@
 const Table = require("cli-table");
 
-const {primes} = require("./segmentedSieveOfEratosthenes.js");
+const {primes} = require("./segmentedSieveOfEratosthenes");
 
 /*
 Prints a primes table of size (N+1)x(N+1) in the console, where N is passed as
