@@ -23,7 +23,6 @@ test("Segmented sieve scales better than regular", () => {
   // test ratios of all valid subsequent values
   times.forEach((t, i) => {
     if (i - 1 >= 0 && t.regular !== "N/A" && times[i - 1].regular !== 0 && times[i - 1].segmented !== 0) {
-      console.log(t.regular / times[i - 1].regular >= t.segmented / times[i - 1].segmented);
       expect(t.regular / times[i - 1].regular >= t.segmented / times[i - 1].segmented).toBe(true);
     }
   });
