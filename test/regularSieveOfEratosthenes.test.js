@@ -36,6 +36,17 @@ describe("potentialPrimes/2", () => {
   });
 });
 
+describe("sweep/3", () => {
+  const sweep = rewiredRegularSoE.__get__("sweep");
+  test("correctly filters a list of potentialPrimes with realistic values", () => {
+    const p = 2, n = 10;
+    const expectedOutput = [2, 3, 5, 7];
+    // odd numbers from 2 (incl.) to 10 (incl.), prepended by 2.
+    const potPrimes = [2, 3, 5, 7, 9];
+    expect(sweep(potPrimes, p, n)).toEqual(expectedOutput);
+  })
+});
+
 describe("primesUntil/1", () => {
   describe("correctly generates primes", () => {
     test("up to 10", () => {
