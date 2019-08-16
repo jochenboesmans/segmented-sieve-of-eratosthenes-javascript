@@ -29,6 +29,8 @@ function sweep(potPrimes, p, n) {
 }
 
 /* Returns a list of composites of p (exclusive) up to n (inclusive). */
-const composites = (p, n) => (p * p > n) ? [] : range(p * p, n + 1, p);
+function composites(p, n) {
+    return (p * p > n) ? [] : range(p * p, n + 1, p);
+}
 
-module.exports = {primesUntil}
+module.exports = {primesUntil};

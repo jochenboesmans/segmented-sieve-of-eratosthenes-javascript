@@ -9,4 +9,4 @@ function potentialPrimes(min, max) {
   return range(start, max + 1, 2);
 }
 
-module.exports = {potentialPrimes}
+module.exports = {potentialPrimes};
