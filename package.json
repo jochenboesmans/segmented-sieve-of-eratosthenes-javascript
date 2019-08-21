@@ -1,9 +1,10 @@
 {
   "name": "segmented-sieve-of-eratosthenes-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Jochen Boesmans <jochen.boesmans@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "main": "src",
   "scripts": {
     "print_primes_table": "node './src/printPrimesTable.js'",
     "test": "jest"
