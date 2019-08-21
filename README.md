@@ -7,7 +7,7 @@ Library for efficiently generating big lists of prime numbers.
 1. Install package: `yarn add segmented-sieve-of-eratosthenes-js`
 2. Import needed function: `const {primesUntil} = require("segmented-sieve-of-eratosthenes-js")`
 3. Use function: `primesUntil(10)`
-4. Expected output: [3, 5, 7, 9]
+4. Expected output: [3, 5, 7]
 
 This will run the segmented algorithm to generate a list of prime numbers until (including) n.
 
